@@ -34,14 +34,28 @@ jobs:
         run: npm install -g newman-reporter-htmlextra
   
 
+
       # Run Newman with specified global variables
       - name: Run Newman Tests
+        #- name: Run Newman Tests
         run: |
           newman run 'Trello.postman_collection.json' \
           -r cli,json,junit,htmlextra \
-          --global-var "API_Key=${{secrets.API_KEY}}" \
-          --global-var "Token=${{secrets.TOKEN}}" \
+          --global-var "API_Key=${{ secrets.API_KEY }}" \
+          --global-var "Token=${{ secrets.TOKEN }}" \
           --global-var "BaseUrl=https://api.trello.com/1/" \
           --global-var "ListID=66dc6355b603dee2d16baa57" \
           --global-var "boardID=66dc6357b9f3a6e655961daf" \
-          --global-var "OrgID=5fa7a89dd5b57b18f6ce66ff"
+          --global-var "OrgID=5fa7a89dd5b57b18f6ce66ff" \
+          --reporter-json-export ./newman/report.json \
+          --reporter-junit-export ./newman/report.xml \
+          --reporter-htmlextra-export ./newman/report.html
+
+      - name: List files in newman directory
+        run: ls -R ./newman
+
+      - name: Upload Newman reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-reports
+          path: ./newman
