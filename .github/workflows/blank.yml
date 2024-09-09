@@ -1,10 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
-name: NewMan using trello
+name: NewMan using Trello
 
 # Controls when the workflow will run
 on:
- 
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -16,9 +15,27 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: Newman run 'Trello.postman_collection.json' --global-var "TRELLO_API_KEY=${{secrets.API_KEY}}" --global-var "TRELLO_API_TOKEN=${{secrets.TOKEN}}" --global-var "TRELLO_BASE_URL=https://api.trello.com/1/" --global-var "ListID=66dc6355b603dee2d16baa57" --global-var "boardID= 66dc6357b9f3a6e655961daf" --global-var "OrgID=5fa7a89dd5b57b18f6ce66ff"
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.17.0'  # Specify your Node.js version here
+
+      # Install Newman globally
+      - name: Install Newman
+        run: npm install -g newman
+
+      # Run Newman with specified global variables
+      - name: Run Newman Tests
+        run: |
+          newman run 'Trello.postman_collection.json' \
+          --global-var "TRELLO_API_KEY=${{ secrets.API_KEY }}" \
+          --global-var "TRELLO_API_TOKEN=${{ secrets.TOKEN }}" \
+          --global-var "TRELLO_BASE_URL=https://api.trello.com/1/" \
+          --global-var "ListID=66dc6355b603dee2d16baa57" \
+          --global-var "boardID=66dc6357b9f3a6e655961daf" \
+          --global-var "OrgID=5fa7a89dd5b57b18f6ce66ff"
