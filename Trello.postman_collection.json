@@ -34,7 +34,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/members/me/organizations?key={{API Key}}&token={{Token}}",
+					"raw": "https://api.trello.com/1/members/me/organizations?key={{API_Key}}&token={{Token}}",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -50,7 +50,7 @@
 					"query": [
 						{
 							"key": "key",
-							"value": "{{API Key}}"
+							"value": "{{API_Key}}"
 						},
 						{
 							"key": "token",
@@ -119,7 +119,7 @@
 					]
 				},
 				"url": {
-					"raw": "https://api.trello.com/1/boards/?name=First Board from postman&key={{API Key}}&token={{Token}}&idOrganization={{OrgID}}",
+					"raw": "https://api.trello.com/1/boards/?name=First Board from postman&key={{API_Key}}&token={{Token}}&idOrganization={{OrgID}}",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -138,7 +138,7 @@
 						},
 						{
 							"key": "key",
-							"value": "{{API Key}}"
+							"value": "{{API_Key}}"
 						},
 						{
 							"key": "token",
@@ -186,7 +186,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/boards/{{boardID}}/lists?name=Lilly to do list&key={{API Key}}&token={{Token}}",
+					"raw": "https://api.trello.com/1/boards/{{boardID}}/lists?name=Lilly to do list&key={{API_Key}}&token={{Token}}",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -206,7 +206,7 @@
 						},
 						{
 							"key": "key",
-							"value": "{{API Key}}"
+							"value": "{{API_Key}}"
 						},
 						{
 							"key": "token",
@@ -267,7 +267,7 @@
 					]
 				},
 				"url": {
-					"raw": "{{BaseUrl}}/cards?idList={{ListID}}&key={{API Key}}&token={{Token}}",
+					"raw": "{{BaseUrl}}/cards?idList={{ListID}}&key={{API_Key}}&token={{Token}}",
 					"host": [
 						"{{BaseUrl}}"
 					],
@@ -281,7 +281,7 @@
 						},
 						{
 							"key": "key",
-							"value": "{{API Key}}"
+							"value": "{{API_Key}}"
 						},
 						{
 							"key": "token",
@@ -312,7 +312,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "{{BaseUrl}}/lists/{{ListID}}/closed?key={{API Key}}&token={{Token}}&value=true",
+					"raw": "{{BaseUrl}}/lists/{{ListID}}/closed?key={{API_Key}}&token={{Token}}&value=true",
 					"host": [
 						"{{BaseUrl}}"
 					],
@@ -324,7 +324,7 @@
 					"query": [
 						{
 							"key": "key",
-							"value": "{{API Key}}"
+							"value": "{{API_Key}}"
 						},
 						{
 							"key": "token",
@@ -359,7 +359,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{BaseUrl}}/boards/{{boardID}}?key={{API Key}}&token={{Token}}",
+					"raw": "{{BaseUrl}}/boards/{{boardID}}?key={{API_Key}}&token={{Token}}",
 					"host": [
 						"{{BaseUrl}}"
 					],
@@ -370,7 +370,7 @@
 					"query": [
 						{
 							"key": "key",
-							"value": "{{API Key}}"
+							"value": "{{API_Key}}"
 						},
 						{
 							"key": "token",
