@@ -37,7 +37,7 @@ jobs:
       - name: Run Newman Tests
         run: |
           newman run 'Trello.postman_collection.json' \
-          -r "cli,json,junit,htmlextra"
+          -r "cli,json,junit,htmlextra"\
           --global-var "API_Key=${{secrets.API_KEY}}" \
           --global-var "Token=${{secrets.TOKEN}}" \
           --global-var "BaseUrl=https://api.trello.com/1/" \
