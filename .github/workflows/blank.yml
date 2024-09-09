@@ -32,12 +32,12 @@ jobs:
        # Install HTMLExtra globally
       - name: Install HTMLExtra
         run: npm install -g newman-reporter-htmlextra
+  
 
       # Run Newman with specified global variables
       - name: Run Newman Tests
         run: |
           newman run 'Trello.postman_collection.json' \
-          -r "cli,json,junit,htmlextra"\
           --global-var "API_Key=${{secrets.API_KEY}}" \
           --global-var "Token=${{secrets.TOKEN}}" \
           --global-var "BaseUrl=https://api.trello.com/1/" \
